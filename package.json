@@ -113,7 +113,8 @@
     "README.md",
     "jestSupport",
     ".flowconfig",
-    "flow"
+    "flow",
+    "npm-shrinkwrap.json"
   ],
   "scripts": {
     "test": "NODE_ENV=test jest",
