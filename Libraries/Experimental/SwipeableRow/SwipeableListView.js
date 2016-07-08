@@ -68,6 +68,10 @@ class SwipeableListView extends React.Component {
 
   static propTypes = {
     /**
+     * Auto close any open rows when listview is scrolled
+     */
+    closeOnScroll: PropTypes.bool.isRequired,
+    /**
      * To alert the user that swiping is possible, the first row can bounce
      * on component mount.
      */
@@ -86,6 +90,7 @@ class SwipeableListView extends React.Component {
   };
 
   static defaultProps = {
+    closeOnScroll: false,
     bounceFirstRowOnMount: false,
     renderQuickActions: () => null,
   };
@@ -121,6 +126,7 @@ class SwipeableListView extends React.Component {
         dataSource={this.state.dataSource.getDataSource()}
         renderRow={this._renderRow}
         scrollEnabled={this.state.scrollEnabled}
+        onScroll={this._onScroll}
       />
     );
   }
@@ -180,6 +186,14 @@ class SwipeableListView extends React.Component {
     this.setState({
       dataSource: this.state.dataSource.setOpenRowID(rowID),
     });
+  };
+
+  _onScroll = (): void => {
+    if (this.props.closeOnScroll) {
+      this.setState({
+        dataSource: this.state.dataSource.setOpenRowID(),
+      });
+    }
   };
 }
 
