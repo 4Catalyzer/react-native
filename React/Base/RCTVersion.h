@@ -10,8 +10,8 @@
  */
 
 #define RCT_REACT_NATIVE_VERSION @{ \
-  @"major": @(0), \
+  @"major": @(1000), \
   @"minor": @(0), \
   @"patch": @(0), \
-  @"prerelease": [NSNull null], \
+  @"prerelease": @"master", \
 }
