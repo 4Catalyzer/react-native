@@ -20,10 +20,10 @@ __attribute__((constructor))
 static void __makeVersion()
 {
   __rnVersion = @{
-                  RCTVersionMajor: @(0),
+                  RCTVersionMajor: @(1000),
                   RCTVersionMinor: @(0),
                   RCTVersionPatch: @(0),
-                  RCTVersionPrerelease: [NSNull null],
+                  RCTVersionPrerelease: @"master",
                   };
 }
 
